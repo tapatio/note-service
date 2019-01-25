@@ -1,0 +1,7 @@
+{
+    // Lowdb database configuration.
+    "lowdb": {
+      "reinitialize_database": false,
+      "filename": "lowdb.json"
+    }
+}
