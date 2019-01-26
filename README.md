@@ -3,11 +3,9 @@
 ## How-to run
 
 1. git clone https://github.com/tapatio/note-service.git
-2. create json file: /lib/data/lowdb/lowdb.json
-3. put this text into the file above: {"notes": []}
-4. npm update
-5. npm install
-6. node index.js
+2. npm update
+3. npm install
+4. node index.js
 
 ## Specifications
 
