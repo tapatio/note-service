@@ -65,3 +65,4 @@ typings/
 
 # Local config files
 local-development.json
+lib/data/lowdb/local
