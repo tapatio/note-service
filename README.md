@@ -38,5 +38,5 @@ The service supports the following use cases:
 
 ### Software Versions Used:
 
-Node v10.15.0
-NPM v6.4.1
+1. Node v10.15.0
+2. NPM v6.4.1
