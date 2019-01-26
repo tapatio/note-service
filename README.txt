@@ -3,7 +3,7 @@
  | || / -_)  _|  _|/(_-< | .` / _ \  _/ -_) \__ \/ -_) '_\ V / / _/ -_)
   \__/\___|_| |_|   /__/ |_|\_\___/\__\___| |___/\___|_|  \_/|_\__\___|
                                                                        
-How-to run:
+# How-to run
 
 1. git clone https://github.com/tapatio/note-service.git
 2. create json file: /lib/data/lowdb/lowdb.json
@@ -12,7 +12,7 @@ How-to run:
 5. npm install
 6. node index.js
 
-Specifications: 
+# Specifications
 
 The service supports the following use cases:
 1. Route to verify service is up.
@@ -25,9 +25,9 @@ The service supports the following use cases:
 8. Notes are persisted across server restarts using lowdb.
 9. Route validation is performed.
 
-Route Table:
+# Route Table
 
-Base route: localhost:3000/api/v1
+## Base route: localhost:3000/api/v1
 
 HTTP        Route               Query Parameters            Path Parameters             Body Payload            Return Values
 GET         /ping               None                        None                        None                    Returns 200 with text "Success". Quick check to see if service is running.
