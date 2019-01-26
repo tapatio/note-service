@@ -5,8 +5,6 @@ const app = express()
 const bodyParser = require('body-parser')
 const routes = require('./api/v1')
 const port = 3000
-const config = require('config')
-const fs = require('fs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

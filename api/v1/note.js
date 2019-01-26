@@ -117,7 +117,7 @@ router.put('/', validate({body: notePutSchema}), (req, res) => {
 router.delete('/', validate({body: noteDeleteSchema}), (req, res) => {
     var noteIds = req.body
     var results = NoteService.remove(noteIds)
-    return res.send(200)
+    return res.sendStatus(200)
 })
 
 router.get('/search', validate({query: noteSearchSchema}), (req, res) => {
