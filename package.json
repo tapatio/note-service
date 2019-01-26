@@ -9,10 +9,12 @@
   "author": "jeff szielenski",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^6.7.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "config": "^3.0.1",
     "express": "^4.16.4",
+    "express-json-validator-middleware": "^1.2.3",
     "lodash": "^4.17.11",
     "lodash-id": "^0.14.0",
     "lowdb": "^1.0.0",

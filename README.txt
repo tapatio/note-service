@@ -23,6 +23,7 @@ The service supports the following use cases:
 6. Route to delete one or more notes.
 7. Route to search for notes given keywords.
 8. Notes are persisted across server restarts using lowdb.
+9. Route validation is performed.
 
 Route Table:
 
