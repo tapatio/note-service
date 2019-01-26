@@ -1,6 +1,6 @@
 {
     "lowdb": {
       "reinitialize_database": false,
-      "filename": "lowdb.json"
+      "filename": "./lib/data/lowdb/lowdb.json"
     }
 }
