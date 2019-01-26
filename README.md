@@ -11,7 +11,7 @@
 
 ## Specifications
 
-The service supports the following use cases:
+The service provides the following features:
 1. Route to verify service is up.
 2. Route that returns all notes.
 3. Route that returns a note given it's id.
@@ -19,8 +19,8 @@ The service supports the following use cases:
 5. Route to edit a note.
 6. Route to delete one or more notes.
 7. Route to search for notes given keywords.
-8. Notes are persisted across server restarts using lowdb.
-9. Route validation is performed.
+8. Note storage using lowdb.
+9. Route validation.
 
 ## Route Table
 
