@@ -1,6 +1,0 @@
-{
-    "lowdb": {
-      "reinitialize_database": true,
-      "filename": "./lib/data/lowdb/jefflocal2.json"
-    }
-}
