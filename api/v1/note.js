@@ -82,13 +82,13 @@ var noteSearchSchema = {
 }
 
 router.get('/all', (req, res) => {
-    let notes = NoteService.get_all()
+    let notes = NoteService.getAll()
     return res.send(JSON.stringify(notes, null, 2))
 })
 
 router.get('/', validate({query: noteGetSchema}), (req, res) => {
     var noteId = req.query.id
-    var result = NoteService.get_note(noteId)
+    var result = NoteService.getNote(noteId)
     if(result === undefined) {
         return res.send(404, `Error: note with id ${noteId} not found. Check your note id and try again.`)
     }
@@ -105,12 +105,12 @@ router.post('/', validate({body: notePostSchema}), (req, res) => {
 
 router.put('/', validate({body: notePutSchema}), (req, res) => {
     var note = req.body
-    var noteId = NoteService.edit(note)
-    if(noteId === undefined) {
+    var stored_note = NoteService.edit(note)
+    if(stored_note === undefined) {
         return res.send(404, `Error: note with id ${note.id} not found. Check your note id and try again.`)
     }
     else {
-        return res.send(JSON.stringify(noteId, null, 2))
+        return res.send(JSON.stringify(stored_note.id, null, 2))
     }
 })
 

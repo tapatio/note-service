@@ -1,0 +1,155 @@
+swagger: "2.0"
+info:
+  description: "This is Jeff's Note Service. You can find out more about     it at [https://github.com/tapatio/note-service](https://github.com/tapatio/note-service)."
+  version: "1.0.0"
+  title: "Jeff's Note Service"
+  contact:
+    email: "jszielenski@gmail.com"
+  license:
+    name: "GNU General Public License v3.0"
+    url: "https://www.gnu.org/licenses/gpl-3.0.en.html"
+host: "localhost:3000"
+basePath: "/api/v1"
+tags:
+- name: "note"
+  description: "Everything about your Notes"
+schemes:
+- "http"
+
+paths:
+  /ping:
+    get:
+      tags:
+      - "ping"
+      summary: "Ping"
+      description: "Returns success if service is running"
+      operationId: "get"
+      produces:
+      - "application/text"
+      responses:
+        200:
+          description: "Success"
+
+  /note/all:
+    get:
+      tags:
+      - "note"
+      summary: "Get all Notes"
+      description: "Returns all notes that exist"
+      operationId: "getAll"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Note"
+
+  /note:
+    get:
+      tags:
+      - "note"
+      summary: "Find note by ID"
+      description: "Returns a single note"
+      operationId: "getNote"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "id"
+        description: "ID of note to return"
+        required: true
+        type: string
+        pattern: '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Note"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Note not found"
+    post:
+      tags:
+      - "note"
+      summary: "Add new note(s) to be stored"
+      description: ""
+      operationId: "create"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "notes"
+        description: "Note objects that needs to be stored"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Note"
+      responses:
+        405:
+          description: "Validation exception"
+    put:
+      tags:
+      - "note"
+      summary: "Update an existing note"
+      description: ""
+      operationId: "edit"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Note object that needs to be edited"
+        required: true
+        schema:
+          $ref: "#/definitions/Note"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Note not found"
+        405:
+          description: "Validation exception"
+    delete:
+      tags:
+      - "note"
+      summary: "Deletes a note"
+      description: ""
+      operationId: "remove"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "noteIds"
+        in: "body"
+        description: "Note ID(s) to delete"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/uuidv4"
+      responses:
+        200:
+          description: "Successfully deleted notes"
+
+definitions:
+  uuidv4:
+    type: string
+    pattern: '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
+  Note:
+    type: "object"
+    required:
+    - "body"
+    properties:
+      id:
+        $ref: "#/definitions/uuidv4"
+      body:
+        type: "string"
+        example: "this is my note"
