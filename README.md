@@ -6,7 +6,7 @@
 2. npm update
 3. npm install
 4. node index.js
-5. open your browser and navigate to localhost:3000/api-docs
+5. open your browser and navigate to http://localhost:3000/api-docs
 
 ## Specifications
 
