@@ -25,6 +25,8 @@ The service provides the following features:
 8. Note storage using lowdb.
 9. Route validation.
 10. Unit tests.
+11. Postman Collection.
+12. Swagger UI.
 
 ## Route Table
 
