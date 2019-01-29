@@ -20,7 +20,7 @@ describe('Notes', () => {
         let databaseFilename = __dirname + '/data/testdb.json'
         fs.remove(databaseFilename, err => {
             if(err) {
-                return console.log(err)
+                return done()
             }
             // Initialize new database with a single note.
             const adapter = new FileSync(databaseFilename)
@@ -78,9 +78,6 @@ describe('Notes', () => {
     after((done) => {
         let databaseFilename = __dirname + '/data/testdb.json'
         fs.remove(databaseFilename, err => {
-            if(err) {
-                return console.log(err)
-            }
             done()
         })
     })
