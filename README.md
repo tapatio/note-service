@@ -40,7 +40,7 @@ The service provides the following features:
 | delete    | /note             | None                       | None                      | JSON array of noteIds | Returns 200.                                                               |
 | GET       | /note/search      | keywords="words to search" | None                      | None                  | Returns 200 with JSON array of notes that contain all of keywords.         |
 
-### Software Versions Used:
+### Software Versions Used
 
 1. Node v10.15.0
 2. NPM v6.4.1
