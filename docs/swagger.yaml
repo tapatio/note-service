@@ -91,7 +91,7 @@ paths:
         schema:
           type: "array"
           items:
-            $ref: "#/definitions/Note"
+            $ref: "#/definitions/PostNote"
       responses:
         400:
           description: "Invalid input supplied"
@@ -172,6 +172,14 @@ definitions:
     properties:
       id:
         $ref: "#/definitions/uuidv4"
+      body:
+        type: "string"
+        example: "this is my note"
+  PostNote:
+    type: "object"
+    required:
+    - "body"
+    properties:
       body:
         type: "string"
         example: "this is my note"
