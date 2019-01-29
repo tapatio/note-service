@@ -5,7 +5,7 @@
 1. git clone https://github.com/tapatio/note-service.git
 2. npm update
 3. npm install
-4. node index.js
+4. npm run start
 5. open your browser and navigate to http://localhost:3000/api-docs
 
 ## Tests
@@ -24,6 +24,7 @@ The service provides the following features:
 7. Route to search for notes given keywords.
 8. Note storage using lowdb.
 9. Route validation.
+10. Unit tests.
 
 ## Route Table
 
