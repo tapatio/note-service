@@ -61,8 +61,9 @@ paths:
         name: "id"
         description: "ID of note to return"
         required: true
-        type: string
-        pattern: '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
+        schema:
+          type: string
+          $ref: "#/definitions/uuidv4"
       responses:
         200:
           description: "successful operation"
@@ -136,6 +137,29 @@ paths:
       responses:
         200:
           description: "Successfully deleted notes"
+
+  /note/search:
+    get:
+      tags:
+      - "note"
+      summary: "Find note by keyword"
+      description: "Returns a single note"
+      operationId: "searchNote"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "keywords"
+        description: "keywords to search for"
+        required: true
+        type: string
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Note"
 
 definitions:
   uuidv4:
