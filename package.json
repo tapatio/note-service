@@ -4,7 +4,9 @@
   "description": "Use this service to store, edit, delete, and search for notes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_PATH=. NODE_ENV=production node index.js",
+    "dev-start": "NODE_PATH=. NODE_ENV=development node index.js",
+    "test": "NODE_PATH=. NODE_ENV=test ./node_modules/.bin/mocha --exit -u tdd --recursive -R xunit test/ > test-reports.xml"
   },
   "author": "jeff szielenski",
   "license": "ISC",
@@ -23,5 +25,11 @@
     "swagger-ui-express": "^4.0.2",
     "uuid": "^3.3.2",
     "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "fs-extra": "^7.0.1",
+    "mocha": "^5.2.0"
   }
 }

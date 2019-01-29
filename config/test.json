@@ -1,0 +1,5 @@
+{
+    "lowdb": {
+      "filename": "./test/data/testdb.json"
+    }
+}

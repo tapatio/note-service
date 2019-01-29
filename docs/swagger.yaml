@@ -92,8 +92,8 @@ paths:
           items:
             $ref: "#/definitions/Note"
       responses:
-        405:
-          description: "Validation exception"
+        400:
+          description: "Invalid input supplied"
     put:
       tags:
       - "note"
@@ -113,11 +113,9 @@ paths:
           $ref: "#/definitions/Note"
       responses:
         400:
-          description: "Invalid ID supplied"
+          description: "Invalid input supplied"
         404:
           description: "Note not found"
-        405:
-          description: "Validation exception"
     delete:
       tags:
       - "note"

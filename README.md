@@ -8,6 +8,10 @@
 4. node index.js
 5. open your browser and navigate to http://localhost:3000/api-docs
 
+## Tests
+
+1. npm run test
+
 ## Specifications
 
 The service provides the following features:
