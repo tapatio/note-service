@@ -12,7 +12,8 @@ let validator = new Validator({allErrors: true})
 let validate = validator.validate
 
 //
-// Define a JSON Schemas. Could be placed in separate schemas file - more modular design.
+// Define JSON route validation schemas.
+// Could be placed in a separate schema file - more modular design.
 //
 
 let uuidPattern = '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
@@ -71,7 +72,7 @@ let noteDeleteSchema = {
 }
 
 let noteSearchSchema = {
-    // req.body is of type array and has array objects that contain an id.
+    // req.query is of type object and has a required keywords property.
     type: 'object',
     required: ['keywords'],
     properties: {
