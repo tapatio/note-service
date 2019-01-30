@@ -6,7 +6,7 @@
 2. npm update
 3. npm install
 4. npm run start
-5. open your browser and navigate to http://localhost:3000/api-docs
+5. open your browser and navigate to http://localhost:8081/api-docs
 
 ## Tests
 
@@ -30,7 +30,7 @@ The service provides the following features:
 
 ## Route Table
 
-### Base route: localhost:3000/api/v1
+### Base route: localhost:8081/api/v1
 
 | HTTP      | Route             | Query Parameters           | Path Parameters           | Body Payload          | Return Values                                                              |
 | ----------|-------------------|----------------------------|---------------------------|-----------------------|----------------------------------------------------------------------------|

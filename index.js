@@ -4,11 +4,14 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const routes = require('./api/v1')
-const port = 3000
+const port = 8081
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
 const swaggerDocument = YAML.load('./docs/swagger.yaml')
 const config = require('config')
+const cors = require("cors")
+
+app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

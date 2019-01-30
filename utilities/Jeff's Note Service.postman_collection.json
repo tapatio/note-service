@@ -10,7 +10,7 @@
 		{
 			"name": "Ping Route",
 			"request": {
-				"url": "localhost:3000/api/v1/ping",
+				"url": "localhost:8081/api/v1/ping",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -21,7 +21,7 @@
 		{
 			"name": "Get All Notes Route",
 			"request": {
-				"url": "localhost:3000/api/v1/note/all",
+				"url": "localhost:8081/api/v1/note/all",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -33,11 +33,11 @@
 			"name": "Get A Note Route",
 			"request": {
 				"url": {
-					"raw": "localhost:3000/api/v1/note?id=9bc8f8cb-f98d-4829-8e2e-bef13b038948",
+					"raw": "localhost:8081/api/v1/note?id=4c793920-f6f8-4c9c-80dd-69b9e28f85e3",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8081",
 					"path": [
 						"api",
 						"v1",
@@ -46,7 +46,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "9bc8f8cb-f98d-4829-8e2e-bef13b038948",
+							"value": "4c793920-f6f8-4c9c-80dd-69b9e28f85e3",
 							"equals": true,
 							"description": ""
 						}
@@ -63,7 +63,7 @@
 		{
 			"name": "Create Notes Route",
 			"request": {
-				"url": "localhost:3000/api/v1/note",
+				"url": "localhost:8081/api/v1/note",
 				"method": "POST",
 				"header": [
 					{
@@ -83,7 +83,7 @@
 		{
 			"name": "Edit Note Route",
 			"request": {
-				"url": "localhost:3000/api/v1/note/",
+				"url": "localhost:8081/api/v1/note/",
 				"method": "PUT",
 				"header": [
 					{
@@ -103,7 +103,7 @@
 		{
 			"name": "Delete Notes Route",
 			"request": {
-				"url": "localhost:3000/api/v1/note",
+				"url": "localhost:8081/api/v1/note",
 				"method": "DELETE",
 				"header": [
 					{
@@ -124,11 +124,11 @@
 			"name": "Search Notes Route",
 			"request": {
 				"url": {
-					"raw": "localhost:3000/api/v1/note/search?keywords=super",
+					"raw": "localhost:8081/api/v1/note/search?keywords=*",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8081",
 					"path": [
 						"api",
 						"v1",
@@ -138,7 +138,7 @@
 					"query": [
 						{
 							"key": "keywords",
-							"value": "super",
+							"value": "*",
 							"equals": true,
 							"description": ""
 						}
