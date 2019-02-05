@@ -102,20 +102,20 @@ router.get('/', validate({query: noteGetSchema}), (req, res) => {
 
 router.post('/', validate({body: notePostSchema}), (req, res) => {
     let notes = req.body
-    let noteIds = NoteService.create(notes)
+    let resultNotes = NoteService.create(notes)
     res.setHeader('Content-Type', 'application/json')
-    return res.send(JSON.stringify(noteIds, null, 2))
+    return res.send(JSON.stringify(resultNotes, null, 2))
 })
 
 router.put('/', validate({body: notePutSchema}), (req, res) => {
     let note = req.body
-    let stored_note = NoteService.edit(note)
+    let storedNote = NoteService.edit(note)
     res.setHeader('Content-Type', 'application/json')
-    if(stored_note === undefined) {
+    if(storedNote === undefined) {
         return res.status(404).send(JSON.stringify({'error': `note with id ${note.id} not found. Check your note id and try again.`}))
     }
     else {
-        return res.send(JSON.stringify(stored_note.id, null, 2))
+        return res.send(JSON.stringify(storedNote.id, null, 2))
     }
 })
 

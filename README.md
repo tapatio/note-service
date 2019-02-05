@@ -37,7 +37,7 @@ The service provides the following features:
 | GET       | /ping             | None                       | None                      | None                  | Returns 200 with text "Success". Quick check to see if service is running. |
 | GET       | /note/all         | None                       | None                      | None                  | Returns 200 with JSON array of all notes currently stored.                 |
 | GET       | /note             | id=NoteId                  | None                      | None                  | Returns 200 with JSON note, 404 if not found.                              |
-| POST      | /note             | None                       | None                      | JSON array of notes   | Returns 200 with JSON array of noteIds corresponding to notes stored.      |
+| POST      | /note             | None                       | None                      | JSON array of notes   | Returns 200 with JSON array of notes corresponding to notes stored.      |
 | PUT       | /note             | None                       | None                      | JSON note with noteId | Returns 200 with JSON noteId, 404 if note UUID not found.                  |
 | delete    | /note             | None                       | None                      | JSON array of noteIds | Returns 200.                                                               |
 | GET       | /note/search      | keywords="words to search" | None                      | None                  | Returns 200 with JSON array of notes that contain all of keywords.         |
