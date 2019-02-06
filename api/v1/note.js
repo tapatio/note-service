@@ -4,6 +4,7 @@ const express = require('express')
 const router = express.Router()
 const NoteService = require('../../lib/service/NoteService/NoteService')
 const { Validator, ValidationError } = require('express-json-validator-middleware')
+const HttpStatus = require('http-status-codes')
 
 // Initialize a Validator instance first with AJV all errors enabled.
 let validator = new Validator({allErrors: true})
@@ -23,7 +24,7 @@ let noteGetSchema = {
     type: 'object',
     required: ['id'],
     properties: {
-        id: { 
+        id: {
             // Validate id is valid UUIDv4.
             type: 'string',
             pattern: uuidPattern
@@ -85,7 +86,7 @@ let noteSearchSchema = {
 router.get('/all', (req, res) => {
     let notes = NoteService.getAll()
     res.setHeader('Content-Type', 'application/json')
-    return res.send(notes, null, 2)
+    return res.send(notes)
 })
 
 router.get('/', validate({query: noteGetSchema}), (req, res) => {
@@ -93,18 +94,18 @@ router.get('/', validate({query: noteGetSchema}), (req, res) => {
     let result = NoteService.getNote(noteId)
     res.setHeader('Content-Type', 'application/json')
     if(result === undefined) {
-        return res.status(404).send(JSON.stringify({'error': `note with id ${noteId} not found. Check your note id and try again.`}))
+        return res.status(HttpStatus.NOT_FOUND).send(JSON.stringify({
+            error: `note with id ${noteId} not found. Check your note id and try again.`
+        }))
     }
-    else {
-        return res.send(JSON.stringify(result, null, 2))
-    }
+    return res.send(JSON.stringify(result))
 })
 
 router.post('/', validate({body: notePostSchema}), (req, res) => {
     let notes = req.body
     let resultNotes = NoteService.create(notes)
     res.setHeader('Content-Type', 'application/json')
-    return res.send(JSON.stringify(resultNotes, null, 2))
+    return res.send(JSON.stringify(resultNotes))
 })
 
 router.put('/', validate({body: notePutSchema}), (req, res) => {
@@ -112,18 +113,18 @@ router.put('/', validate({body: notePutSchema}), (req, res) => {
     let storedNote = NoteService.edit(note)
     res.setHeader('Content-Type', 'application/json')
     if(storedNote === undefined) {
-        return res.status(404).send(JSON.stringify({'error': `note with id ${note.id} not found. Check your note id and try again.`}))
+        return res.status(HttpStatus.NOT_FOUND).send(JSON.stringify({
+            error: `note with id ${note.id} not found. Check your note id and try again.`
+        }))
     }
-    else {
-        return res.send(JSON.stringify(storedNote.id, null, 2))
-    }
+    return res.send(JSON.stringify(storedNote.id))
 })
 
 router.delete('/', validate({body: noteDeleteSchema}), (req, res) => {
     let noteIds = req.body
-    let results = NoteService.remove(noteIds)
+    NoteService.remove(noteIds)
     res.setHeader('Content-Type', 'application/json')
-    return res.sendStatus(200)
+    return res.sendStatus(HttpStatus.OK)
 })
 
 router.get('/search', validate({query: noteSearchSchema}), (req, res) => {
@@ -134,18 +135,18 @@ router.get('/search', validate({query: noteSearchSchema}), (req, res) => {
 })
 
 // Error handler for route validation errors.
-router.use(function(err, req, res, next) {
+router.use((err, req, res, next) => {
     if (err instanceof ValidationError) {
         let msg = {
-            "message": "invalid request",
-            "error": err.validationErrors
+            message: 'invalid request',
+            error: err.validationErrors
         }
         res.setHeader('Content-Type', 'application/json')
-        res.status(400).send(JSON.stringify(msg))
-        next()
+        res.status(HttpStatus.BAD_REQUEST).send(JSON.stringify(msg))
+        return next()
     }
     // Pass error on if not a route validation error.
-    else next(err) 
+    return next(err)
 })
 
 module.exports = router
