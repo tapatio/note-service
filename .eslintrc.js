@@ -5,11 +5,6 @@ module.exports = exports = {
         "es6": true
     },
 
-    "ecmaFeatures": {
-        // env=es6 doesn't include modules, which we are using
-        "modules": true
-    },
-
     "extends": "eslint:recommended",
 
     "rules": {
